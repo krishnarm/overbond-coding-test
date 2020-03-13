@@ -1,50 +1,32 @@
-#Overbond Coding Challenge
-##What is this?
-This respository is for the Overbond coding challenge. The challenge contains two parts:
+* Reason to choose Java
+    1. Java suports the concepts of OOP and so it is easily readble. 
+    2. I chose java as the given application is light-weight and can be finished easily using Java and it's libraries and it is platform independent.
+    3. I've learnt java and been using Angular and ReactJS technologies these days. using Java for this challenge made me to remind all the functions that i was using while i was learning the program
 
-1. Calculating the spread between a corporate bond and it's government benchmark
-2. Calculating the spread to the curve 
+* Running the program:
 
-For more information about the challenge please visit the following Gist:
-https://gist.github.com/apotapov/3118c573df2a4ac7a93f00cf39ea620a
+    1. The main loginc of the applicaiton lies in main.java and was developed using Visual stuido code.
+    2. Click on the file, then click on 'Run' in the context menu to run the program. To debug, click on 'Debug' on the same.
 
-##Understanding the Code
-This challenge was written in Java. All the main logic is contained in the Main Java class. 
-There was no need to split this up into several classes as the challenge mostly revolved around basic 
-math functions. I think this challenge might actually lend it self well to a functional language, but 
-for the sake of time I chose to write it all in Java for now. 
+Architecture:
 
-The code is structured as follows:
-.
 * [src](./src)
-    * [org.rafikmatta](./src/org.rafikmatta)
-        * [test](./src/org.rafikmatta/test) - folder containing unit Tests
+    * [org.krishna](./src/org.krishna)
+        * [test](./src/org.krishna/test) - folder containing unit Tests
         * BondDateComparator.java - this is used for comparing two Bond Dates for sorting
         * Main.java - the main Java interface file and driver
         * OverBondClient.java - the business logic
         * WrongBondTypeException.java - an exception class used in case a non standard bond type is presented
     
 
-The main logic is as follows:
-1. Ask the user to specify an input file via the command line
-2. Parse the file and split it up into Corporate and Government Bonds
-3. Sort the two respective lists (this use's Java Collections built-in sort which is modified merge-sort so it performs in O(nlogn) time. For mor information please see https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html)
-4. Run the "getSpreadToBenchMark" function.
-5. Run the "getSpreadToCurve" function.
+* The main logic is as follows:
+1. Run the "getSpreadToBenchMark" function to get the calculate the yield spread (return) between a corporate bond and its government bond benchmark.
+2. Run the "getSpreadToCurve" function to get the spread to curve percentage using linear interpolation.
 
-The functions in 4 and 5 share some logic. What happens is that they both iterate through the 
-corporate bond list and on each loop, they will add the corporate bond to the government bond list and 
-be sorted again. After that the logic differs. 
 
-## Future Improvements
+* Future Improvements
 
-At this time, the logic is based on the assumptions mentioned by the authors in the Gist.
-In the future, it would be nice to add a validation layer for the CSV input file,
-possibly add support for multiple input methods.
-
-The total worst case runtime of this system should be O(nlogn) because of the sorting 
-that needs to occur on the different lists. It would be ideal to come up
-with an algorithm that comes closer to O(n) (if possible).
-
-A final improvement might be to change the interface from a command line, 
-or to further expand on the command line interface. 
+1. In the future, it would be nice to add a different input types where the calues can also be encrypted to boost the security feature of the file. 
+2. store bonds and querying into the cloud to save memory wastage.
+3. If the data is very large, then we can use the CSV API with external sort to boost performance. 
+4. Only very simple tests are written due to time constraint. If i had more time, the tests and the funcitonalities could've been better. 
